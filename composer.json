@@ -1,0 +1,28 @@
+{
+    "name": "immowert/legal",
+    "description": "Zentrale Rechtstexte (Impressum, Datenschutz, AGB) fuer alle Portale der ImmoWert Experts GmbH.",
+    "type": "library",
+    "license": "proprietary",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+        "illuminate/view": "^10.0 || ^11.0 || ^12.0 || ^13.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ImmoWert\\Legal\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ImmoWert\\Legal\\LegalServiceProvider"
+            ],
+            "aliases": {
+                "Legal": "ImmoWert\\Legal\\Facades\\Legal"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
