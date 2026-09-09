@@ -105,9 +105,14 @@
     </p>
 @endif
 
-@if ($svc['paypal'] ?? false)
-    <h2>{{ $num() }}Zahlungsdienstleister PayPal</h2>
-    <x-legal::ds.paypal />
+@if (($svc['paypal'] ?? false) || ($svc['stripe'] ?? false))
+    <h2>{{ $num() }}Zahlungsdienstleister</h2>
+    @if ($svc['paypal'] ?? false)
+        <x-legal::ds.paypal />
+    @endif
+    @if ($svc['stripe'] ?? false)
+        <x-legal::ds.stripe />
+    @endif
 @endif
 
 @if (($svc['umami'] ?? false) || ($svc['google_ads'] ?? false))
@@ -123,13 +128,16 @@
     <p>Wir setzen derzeit kein Analysewerkzeug ein und erstellen keine Nutzungsprofile.</p>
 @endif
 
-@if (($svc['google_fonts'] ?? false) || ($svc['google_maps'] ?? false))
+@if (($svc['google_fonts'] ?? false) || ($svc['google_maps'] ?? false) || ($svc['openstreetmap'] ?? false))
     <h2>{{ $num() }}Eingebundene Inhalte Dritter</h2>
     @if ($svc['google_fonts'] ?? false)
         <x-legal::ds.google-fonts />
     @endif
     @if ($svc['google_maps'] ?? false)
         <x-legal::ds.google-maps />
+    @endif
+    @if ($svc['openstreetmap'] ?? false)
+        <x-legal::ds.openstreetmap />
     @endif
 @else
     <h2>{{ $num() }}Keine Inhalte Dritter</h2>

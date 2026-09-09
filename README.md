@@ -16,7 +16,7 @@ nur noch drei Wrapper-Views mit dem eigenen Layout.
 ## Installation in einem Portal
 
 ```bash
-composer config repositories.immowert-legal vcs git@github.com:ImmoWert-Experts-GmbH/legal.git
+composer config repositories.immowert-legal vcs https://github.com/ImmoWert-Experts-GmbH/legal.git
 composer require immowert/legal:^1.0
 php artisan vendor:publish --tag=immowert-legal-views
 ```

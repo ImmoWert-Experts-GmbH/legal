@@ -53,6 +53,8 @@ return [
         'bestellformular' => false,   // Antragsstrecke ueber client.10-x.eu
         'vertragsdaten'   => false,
         'paypal'          => false,
+        'stripe'          => false,   // Zahlungsabwicklung ueber Stripe
+        'openstreetmap'   => false,   // Kartenkacheln von tile.openstreetmap.org
         'registrierung'   => false,
         'kommentare'      => false,
     ],
