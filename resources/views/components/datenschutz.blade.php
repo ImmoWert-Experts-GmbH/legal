@@ -9,6 +9,10 @@
     $site    = (array) config('immowert-legal.site');
     $svc     = (array) config('immowert-legal.services');
     $auth    = (array) config('immowert-legal.authority');
+    // Der sichtbare Linktext wird aus der Adresse abgeleitet, nicht daneben
+    // gepflegt. Genau daran ist es vorher auseinandergelaufen: der Text nannte
+    // die neue Domain, das href zeigte noch auf die alte.
+    $authHost = rtrim(preg_replace('#^https?://#', '', (string) ($auth['url'] ?? '')), '/');
     $hostKey = config('immowert-legal.hosting.provider');
     $host    = (array) data_get(config('immowert-legal.hosting_providers'), $hostKey, []);
     $n       = 0;
@@ -175,8 +179,8 @@
 </p>
 <p>
     Außerdem haben Sie das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns
-    zuständig ist die Sächsische Datenschutz- und Transparenzbeauftragte, Devrientstraße 5, 01067 Dresden,
-    <a href="{{ $auth['url'] ?? 'https://www.datenschutz.sachsen.de/' }}" rel="noopener">www.datenschutz.sachsen.de</a>.
+    zuständig ist die {{ $auth['name'] }}, {{ $auth['address'] }},
+    <a href="{{ $auth['url'] }}" rel="noopener">{{ $authHost }}</a>.
 </p>
 
 <h2>{{ $num() }}Pflicht zur Bereitstellung</h2>

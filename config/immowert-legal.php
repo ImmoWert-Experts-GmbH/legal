@@ -45,8 +45,12 @@ return [
     |--------------------------------------------------------------------------
     */
     'authority' => [
-        'name' => 'Sächsischer Datenschutzbeauftragter',
-        'url'  => 'https://www.saechsdsb.de/',
+        // Bezeichnung ohne Artikel - der Satz im Text stellt "die" davor.
+        // Die Behoerde heisst seit der Umbenennung so; die frueheren Angaben
+        // ("Saechsischer Datenschutzbeauftragter", saechsdsb.de) sind ueberholt.
+        'name'    => 'Sächsische Datenschutz- und Transparenzbeauftragte',
+        'address' => 'Devrientstraße 5, 01067 Dresden',
+        'url'     => 'https://www.datenschutz.sachsen.de/',
     ],
 
     /*
@@ -144,7 +148,7 @@ return [
     | die beim Deploy vergessen wurde, faellt sofort auf.
     |
     */
-    'version' => '1.2.1',
+    'version' => '1.2.2',
     'stand'   => '2026-09-17',
 
 ];
