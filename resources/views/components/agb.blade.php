@@ -294,7 +294,7 @@
     gesamten EU, einschließlich Deutschland.<br /><br />
     Um eine wirksame Durchsetzung zu gewährleisten, hat Deutschland zusätzlich ein Gesetz zur Umsetzung
     von
-    eIDAS verabschiedet, das sogenannte Trust Services Act (Vertrauendienstegesetz oder VDG), das darauf
+    eIDAS verabschiedet, das sogenannte Trust Services Act (Vertrauensdienstegesetz oder VDG), das darauf
     abzielt, die Nutzung elektronischer Treuhanddienste in Deutschland zu erleichtern. Das Gesetz trat
     am
     29. Juli 2017 in Kraft.<br><br>

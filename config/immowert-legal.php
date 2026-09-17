@@ -24,7 +24,7 @@ return [
     */
     'company' => [
         'name'           => 'ImmoWert Experts GmbH',
-        'prefix'         => 'Ingenieurbuero',
+        'prefix'         => 'Ingenieurbüro',
         'street'         => 'Clara-Zetkin-Str. 10A',
         'postal_code'    => '01796',
         'city'           => 'Pirna',
@@ -36,7 +36,7 @@ return [
         'register_court' => 'Amtsgericht Dresden',
         'vat_id'         => 'DE311706045',
         'represented_by' => ['Stephanie Pilz', 'Dennis Pilz'],
-        'dpo'            => 'Der Datenschutzbeauftragte im Unternehmen ist die Geschaeftsfuehrung.',
+        'dpo'            => 'Der Datenschutzbeauftragte im Unternehmen ist die Geschäftsführung.',
     ],
 
     /*
@@ -45,7 +45,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'authority' => [
-        'name' => 'Saechsischer Datenschutzbeauftragter',
+        'name' => 'Sächsischer Datenschutzbeauftragter',
         'url'  => 'https://www.saechsdsb.de/',
     ],
 
@@ -103,8 +103,8 @@ return [
 
     'hosting_providers' => [
         'allinkl' => [
-            'name'     => 'ALL-INKL.COM - Neue Medien Muennich, Inhaber Rene Muennich',
-            'address'  => 'Hauptstrasse 68, 02742 Friedersdorf',
+            'name'     => 'ALL-INKL.COM - Neue Medien Münnich, Inhaber René Münnich',
+            'address'  => 'Hauptstraße 68, 02742 Friedersdorf',
             'location' => 'Rechenzentrum in Deutschland',
         ],
         'hetzner' => [
@@ -144,7 +144,7 @@ return [
     | die beim Deploy vergessen wurde, faellt sofort auf.
     |
     */
-    'version' => '1.2.0',
+    'version' => '1.2.1',
     'stand'   => '2026-09-17',
 
 ];
