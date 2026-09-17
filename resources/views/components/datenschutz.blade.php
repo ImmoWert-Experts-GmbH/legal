@@ -75,6 +75,11 @@
     <x-legal::ds.bestellformular />
 @endif
 
+@if ($svc['dokument_check'] ?? false)
+    <h2>{{ $num() }}Kostenlose Auswertung hochgeladener Dokumente</h2>
+    <x-legal::ds.dokumentcheck />
+@endif
+
 @if ($svc['kontaktformular'] ?? false)
     <h2>{{ $num() }}Kontaktformular</h2>
     <p>

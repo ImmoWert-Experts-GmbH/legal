@@ -85,6 +85,7 @@ return [
         'google_maps'      => false,
         'kontaktformular'  => false,
         'bestellformular'  => false,   // Antragsstrecke ueber client.10-x.eu
+        'dokument_check'   => false,   // kostenlose Dokumentauswertung ueber amtfinder.de
         'vertragsdaten'    => false,
         'paypal'           => false,
         'registrierung'    => false,
@@ -143,7 +144,7 @@ return [
     | die beim Deploy vergessen wurde, faellt sofort auf.
     |
     */
-    'version' => '1.1.0',
-    'stand'   => '2026-09-09',
+    'version' => '1.2.0',
+    'stand'   => '2026-09-17',
 
 ];

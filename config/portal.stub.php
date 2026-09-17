@@ -51,6 +51,7 @@ return [
         'google_maps'     => false,   // Karten-iframe
         'kontaktformular' => false,
         'bestellformular' => false,   // Antragsstrecke ueber client.10-x.eu
+        'dokument_check'  => false,   // kostenlose Dokumentauswertung ueber amtfinder.de
         'vertragsdaten'   => false,
         'paypal'          => false,
         'stripe'          => false,   // Zahlungsabwicklung ueber Stripe
