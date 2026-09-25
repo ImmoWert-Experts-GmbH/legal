@@ -50,12 +50,13 @@ return [
         'google_fonts'    => false,   // false = Schriften liegen im eigenen Bundle
         'google_maps'     => false,   // Karten-iframe
         'kontaktformular' => false,
-        'bestellformular' => false,   // Antragsstrecke ueber client.10-x.eu
+        'bestellformular' => false,   // Antragsstrecke ueber client.10-x.eu: true = iframe, 'api' = eigenes Formular (Shop-API)
         'dokument_check'  => false,   // kostenlose Dokumentauswertung ueber amtfinder.de
         'vertragsdaten'   => false,
         'paypal'          => false,
         'stripe'          => false,   // Zahlungsabwicklung ueber Stripe
         'openstreetmap'   => false,   // Kartenkacheln von tile.openstreetmap.org
+        'adresssuche'     => false,   // Adressvorschlaege ueber LocationIQ (serverseitig)
         'registrierung'   => false,
         'kommentare'      => false,
     ],

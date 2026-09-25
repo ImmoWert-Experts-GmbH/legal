@@ -1,14 +1,29 @@
 @php($c = (array) config('immowert-legal.company'))
 
-<h3>Eingebettetes Bestellformular</h3>
+{{-- 10x ist die eigene Bestellplattform des Unternehmens (kein externer Dienstleister, kein
+     Auftragsverarbeiter). services.bestellformular: true = eingebettetes Formular (iframe),
+     'api' = eigenes Formular des Portals, Uebermittlung Server-zu-Server an 10x (Shop-API). --}}
+@if (config('immowert-legal.services.bestellformular') === 'api')
+<h3>Bestellformular auf dieser Website</h3>
 <p>
-    Das Bestellformular wird vom Dienstleister 10x (client.10-x.eu) bereitgestellt und als eingebetteter
-    Bereich in unsere Seite geladen. Beim Laden der Bestellseite überträgt Ihr Browser IP-Adresse,
-    Browserdaten und die aufgerufene Seite an den Server dieses Dienstleisters; die im Formular
-    eingegebenen Daten werden dort erhoben und an uns weitergeleitet. Der Dienstleister ist für uns als
-    Auftragsverarbeiter nach Art. 28 DSGVO tätig. Rechtsgrundlage für die Einbindung ist
+    Das Bestellformular ist Teil dieser Website. Nach dem Absenden übermittelt unser Server Ihre Angaben
+    verschlüsselt an unsere eigene Bestellplattform 10x (client.10-x.eu), über die wir Bestellungen anlegen
+    und abwickeln. Ihr Browser baut dabei keine Verbindung zur Bestellplattform auf; eine Weitergabe an Dritte
+    findet dabei nicht statt. Zum Schutz vor missbräuchlichen Absendungen setzt die Bestellseite ein
+    technisch notwendiges Sitzungs-Cookie, das beim Schließen des Browsers gelöscht wird. Rechtsgrundlage ist
     Art. 6 Abs. 1 lit. b DSGVO (Vorbereitung und Durchführung des Vertrags).
 </p>
+@else
+<h3>Eingebettetes Bestellformular</h3>
+<p>
+    Das Bestellformular stammt von unserer eigenen Bestellplattform 10x (client.10-x.eu) und wird als
+    eingebetteter Bereich in diese Seite geladen. Beim Laden der Bestellseite überträgt Ihr Browser
+    IP-Adresse, Browserdaten und die aufgerufene Seite an den Server der Bestellplattform; die im Formular
+    eingegebenen Daten werden dort erhoben und verarbeitet. Eine Weitergabe an Dritte findet dabei nicht
+    statt. Rechtsgrundlage für die Einbindung ist Art. 6 Abs. 1 lit. b DSGVO (Vorbereitung und
+    Durchführung des Vertrags).
+</p>
+@endif
 
 <h3>Verarbeitete Daten und Zweck</h3>
 <p>

@@ -68,7 +68,7 @@
         notwendiges Sitzungs-Cookie wird nur gesetzt, wenn Sie ein Formular nutzen; es schützt vor
         missbräuchlichen Absendungen (CSRF-Schutz) und wird beim Schließen des Browsers gelöscht
         (§ 25 Abs. 2 Nr. 2 TDDDG, Art. 6 Abs. 1 lit. f DSGVO).
-        @if ($svc['bestellformular'] ?? false)
+        @if (($svc['bestellformular'] ?? false) && ($svc['bestellformular'] ?? false) !== 'api')
             Das eingebettete Bestellformular kann eigene technisch notwendige Cookies setzen.
         @endif
     </p>
@@ -137,8 +137,8 @@
     <p>Wir setzen derzeit kein Analysewerkzeug ein und erstellen keine Nutzungsprofile.</p>
 @endif
 
-@if (($svc['google_fonts'] ?? false) || ($svc['google_maps'] ?? false) || ($svc['openstreetmap'] ?? false))
-    <h2>{{ $num() }}Eingebundene Inhalte Dritter</h2>
+@if (($svc['google_fonts'] ?? false) || ($svc['google_maps'] ?? false) || ($svc['openstreetmap'] ?? false) || ($svc['adresssuche'] ?? false))
+    <h2>{{ $num() }}Eingebundene Inhalte und Dienste Dritter</h2>
     @if ($svc['google_fonts'] ?? false)
         <x-legal::ds.google-fonts />
     @endif
@@ -147,6 +147,9 @@
     @endif
     @if ($svc['openstreetmap'] ?? false)
         <x-legal::ds.openstreetmap />
+    @endif
+    @if ($svc['adresssuche'] ?? false)
+        <x-legal::ds.adresssuche />
     @endif
 @else
     <h2>{{ $num() }}Keine Inhalte Dritter</h2>

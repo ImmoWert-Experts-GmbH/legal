@@ -88,7 +88,8 @@ return [
         'google_fonts'     => false,   // false = Schriften liegen im eigenen Bundle
         'google_maps'      => false,
         'kontaktformular'  => false,
-        'bestellformular'  => false,   // Antragsstrecke ueber client.10-x.eu
+        'bestellformular'  => false,   // Antragsstrecke ueber client.10-x.eu: true = iframe, 'api' = eigenes Formular (Shop-API)
+        'adresssuche'      => false,   // Adressvorschlaege ueber LocationIQ (serverseitig)
         'dokument_check'   => false,   // kostenlose Dokumentauswertung ueber amtfinder.de
         'vertragsdaten'    => false,
         'paypal'           => false,
@@ -148,7 +149,7 @@ return [
     | die beim Deploy vergessen wurde, faellt sofort auf.
     |
     */
-    'version' => '1.2.2',
-    'stand'   => '2026-09-17',
+    'version' => '1.3.0',
+    'stand'   => '2026-09-25',
 
 ];
