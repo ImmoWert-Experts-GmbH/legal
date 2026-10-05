@@ -26,7 +26,11 @@ class Legal
                 continue;
             }
 
-            Route::get($route['path'], fn () => view($this->viewFor($page)))
+            // Statische Closure ohne $this: `route:cache` serialisiert sie, und
+            // Laravel 13 entpackt gecachte Routen nur mit einer Whitelist
+            // erlaubter Klassen. Eine Instanz dieser Klasse kaeme dort als
+            // __PHP_Incomplete_Class an - /impressum lieferte dann HTTP 500.
+            Route::get($route['path'], static fn () => view(app(self::class)->viewFor($page)))
                 ->name($route['name']);
         }
     }
