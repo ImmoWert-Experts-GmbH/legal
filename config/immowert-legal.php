@@ -194,7 +194,7 @@ return [
     | die beim Deploy vergessen wurde, faellt sofort auf.
     |
     */
-    'version' => '1.3.1',
-    'stand'   => '2026-10-05',
+    'version' => '1.4.0',
+    'stand'   => '2026-10-07',
 
 ];
