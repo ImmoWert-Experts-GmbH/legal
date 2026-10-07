@@ -18,11 +18,19 @@ class Legal
      * damit jedes Portal sein eigenes Layout behaelt. Fehlt ein Wrapper, faellt die
      * Route auf die Paketansicht zurueck - die Seite ist damit nie tot, auch wenn
      * ein Portal die Views noch nicht publiziert hat.
+     *
+     * Eine Route mit "text" (z. B. 'widerruf_digital') entsteht nur, wenn dieser
+     * Text zentral freigegeben ist (released()). Bis dahin fehlt die Route, und
+     * das Portal sieht ueber Route::has(), dass der Text noch aussteht.
      */
     public function routes(): void
     {
         foreach ($this->config->get('immowert-legal.routes', []) as $page => $route) {
             if (! ($route['enabled'] ?? true)) {
+                continue;
+            }
+
+            if (isset($route['text']) && ! $this->released($route['text'])) {
                 continue;
             }
 
@@ -58,6 +66,20 @@ class Legal
             $c['postal_code'] ?? '',
             $c['city'] ?? ''
         );
+    }
+
+    /** Ist der Text (Schluessel aus 'texts') inhaltlich freigegeben? */
+    public function released(string $text): bool
+    {
+        return $this->config->get("immowert-legal.texts.{$text}") === true;
+    }
+
+    /** Freigegebener Checkbox-Wortlaut oder null, solange er aussteht. */
+    public function consent(string $key): ?string
+    {
+        $text = $this->config->get("immowert-legal.consents.{$key}");
+
+        return is_string($text) && trim($text) !== '' ? $text : null;
     }
 
     public function uses(string $service): bool

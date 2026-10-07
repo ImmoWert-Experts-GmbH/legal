@@ -70,11 +70,19 @@ return [
 
     /*
     | Pfade der Rechtsseiten. Historisch gibt es /agb und /agbs.
+    |
+    | "text" bindet eine Route an einen zentral freigegebenen Text
+    | ('texts' im Paket). Fehlt die Freigabe, entsteht die Route nicht.
+    | Portale mit digitalen Einzeldokumenten (Kasse mit Widerrufsverzicht)
+    | stellen die AGB auf 'agb_digital' um und schalten 'widerruf' ein; die
+    | Wrapper legal/agb.blade.php bzw. legal/widerruf.blade.php binden dann
+    | <x-legal::agb-digital /> bzw. <x-legal::widerruf-digital /> ein.
     */
     'routes' => [
         'impressum'   => ['path' => 'impressum',   'name' => 'impressum',   'enabled' => true],
         'datenschutz' => ['path' => 'datenschutz', 'name' => 'datenschutz', 'enabled' => true],
         'agb'         => ['path' => 'agb',         'name' => 'agb',         'enabled' => true],
+        'widerruf'    => ['path' => 'widerruf',    'name' => 'widerruf',    'enabled' => false, 'text' => 'widerruf_digital'],
     ],
 
 ];

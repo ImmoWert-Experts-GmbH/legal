@@ -23,7 +23,7 @@ class LegalServiceProvider extends ServiceProvider
      * nie an. Genau die Drift soll das Paket beseitigen, also werden diese
      * Bloecke nach dem Merge zurueckgesetzt.
      */
-    private const CENTRAL = ['company', 'authority', 'hosting_providers', 'version', 'stand'];
+    private const CENTRAL = ['company', 'authority', 'hosting_providers', 'texts', 'consents', 'version', 'stand'];
 
     public function boot(): void
     {

@@ -11,3 +11,6 @@
 @if (($r['agb']['enabled'] ?? true) && Route::has($r['agb']['name'] ?? 'agb'))
     <a href="{{ route($r['agb']['name']) }}">AGB</a>
 @endif
+@if (isset($r['widerruf']) && ($r['widerruf']['enabled'] ?? true) && Route::has($r['widerruf']['name'] ?? 'widerruf'))
+    <a href="{{ route($r['widerruf']['name']) }}">Widerrufsbelehrung</a>
+@endif

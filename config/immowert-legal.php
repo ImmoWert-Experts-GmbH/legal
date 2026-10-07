@@ -137,6 +137,51 @@ return [
         'impressum'   => ['path' => 'impressum',   'name' => 'impressum',   'enabled' => true],
         'datenschutz' => ['path' => 'datenschutz', 'name' => 'datenschutz', 'enabled' => true],
         'agb'         => ['path' => 'agb',         'name' => 'agb',         'enabled' => true],
+        'widerruf'    => ['path' => 'widerruf',    'name' => 'widerruf',    'enabled' => false, 'text' => 'widerruf_digital'],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Freigegebene Texte (zentral)
+    |--------------------------------------------------------------------------
+    |
+    | Welche Texte inhaltlich freigegeben sind. Eine Route mit "text" (siehe
+    | portal.stub.php) registriert Legal::routes() nur, wenn ihr Text hier auf
+    | true steht - ein Portal kann so keinen leeren Slot ausliefern und auch
+    | keinen Text selbst freischalten (der Block ist zentral wie "company").
+    |
+    | agb               - AGB der Bestellportale (components/agb.blade.php)
+    | agb_digital       - AGB fuer digitale Einzeldokumente, nicht amtlich
+    |                     (Slot components/agb-digital.blade.php, Text fehlt)
+    | widerruf_digital  - Widerrufsbelehrung fuer digitale Inhalte mit
+    |                     Muster-Widerrufsformular
+    |                     (Slot components/widerruf-digital.blade.php, Text fehlt)
+    |
+    */
+    'texts' => [
+        'impressum'        => true,
+        'datenschutz'      => true,
+        'agb'              => true,
+        'agb_digital'      => false,
+        'widerruf_digital' => false,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Checkbox-Wortlaute (zentral)
+    |--------------------------------------------------------------------------
+    |
+    | Freigegebene Wortlaute fuer Bestellstrecken; null = noch nicht
+    | freigegeben (das Portal zeigt dann seinen markierten Entwurf).
+    |
+    | terms              - Zustimmung zu den AGB, Kenntnisnahme Datenschutz
+    | early_performance  - Verlangen der Bereitstellung vor Ablauf der
+    |                      Widerrufsfrist (§ 356 Abs. 5 BGB)
+    |
+    */
+    'consents' => [
+        'terms'             => null,
+        'early_performance' => null,
     ],
 
     /*

@@ -62,6 +62,26 @@ Text nicht auf — statt eines Google-Absatzes erscheint der Hinweis, dass Schri
 eigenen Server geladen werden. Damit kann keine Erklärung mehr Dienste behaupten, die
 es auf der Seite gar nicht gibt.
 
+## Freigaben und Slots (seit v1.4.0)
+
+Zwei zentrale Blöcke in `config/immowert-legal.php`, die kein Portal überschreiben kann:
+
+- `texts`: welche Texte freigegeben sind. `agb_digital` (AGB für digitale
+  Einzeldokumente, nicht amtlich) und `widerruf_digital` (Widerrufsbelehrung für
+  digitale Inhalte mit Muster-Widerrufsformular) sind **Slots**: die Komponenten
+  `<x-legal::agb-digital />` und `<x-legal::widerruf-digital />` existieren, der Text
+  fehlt noch, der Schalter steht auf `false`.
+- `consents`: freigegebene Checkbox-Wortlaute für Bestellstrecken (`terms`,
+  `early_performance` nach § 356 Abs. 5 BGB); `null` = noch nicht freigegeben.
+
+Eine Route mit `'text' => '…'` in `routes` registriert `Legal::routes()` nur, wenn der
+Text freigegeben ist. Ein Portal erkennt einen ausstehenden Text also an
+`Route::has('widerruf') === false` und kann den Verkauf sperren. `Legal::released($text)`
+und `Legal::consent($key)` lesen die Freigaben.
+
+Text freigeben: Text in die Slot-Komponente einsetzen, Schalter in `texts` auf `true`
+(bzw. Wortlaut in `consents`), neue Fassung schneiden.
+
 ## Änderung ausrollen
 
 1. Text oder Firmendaten hier ändern.
@@ -92,6 +112,8 @@ php artisan legal:check || exit 1
 | `<x-legal::impressum />`      | vollständiges Impressum                         |
 | `<x-legal::datenschutz />`    | Datenschutzerklärung, nach `services` gefiltert |
 | `<x-legal::agb />`            | AGB                                             |
+| `<x-legal::agb-digital />`    | AGB digitale Einzeldokumente (Slot)             |
+| `<x-legal::widerruf-digital />` | Widerrufsbelehrung digitale Inhalte (Slot)    |
 | `<x-legal::company-block />`  | nur der Firmenblock (Anschrift)                 |
 | `<x-legal::contact-block />`  | nur E-Mail/Telefon/Fax                          |
 | `<x-legal::footer-links />`   | Footer-Links auf die eigenen Rechtsseiten       |

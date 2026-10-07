@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static array company()
  * @method static string addressLine()
  * @method static bool uses(string $service)
+ * @method static bool released(string $text)
+ * @method static string|null consent(string $key)
  * @method static string siteName()
  * @method static string viewFor(string $page)
  *
